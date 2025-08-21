@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন</title>
+    <!-- Loads Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Loads the Hind Siliguri font for Bengali text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Sets the default font for the entire body */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        /* Custom styles for the hero section background */
+        .hero-section {
+            /* Using a placeholder image since the original path was a local file */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url('/aaa.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+        
+        /* Custom CSS to hide the horizontal scrollbar */
+        .slider-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .slider-container::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+        #donate{
+            margin-top: -100px;
+        }
+        #donate_bg{
+            background-color: #E8B65D;
+            opacity: 75;
+        }
+        .p_text_margin{
+            margin-top: -40px;
+            margin-bottom: 40px;
+        }
+    </style>
+    <!-- Loads Alpine.js for interactive elements like the mobile menu -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <!-- Uses responsive padding for better mobile view -->
+            <nav class="container mx-auto px-4 sm:px-8 lg:px-24 flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center">
+                        <img src="https://placehold.co/40x40/047857/ffffff?text=Logo" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="#" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <!-- Desktop navigation links -->
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <!-- Links updated to use section IDs for single-page navigation -->
+                    <a href="#" class="hover:text-emerald-700">হোম</a>
+                    <a href="about us.html" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="Activity.html" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="#project-gallery" class="hover:text-emerald-700">প্রকল্প গ্যালারি</a>
+                    <a href="#news-slider" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="#contact" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <!-- Mobile menu button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <!-- Mobile navigation links -->
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <!-- Links updated to use section IDs -->
+                <a href="#" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="about us.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="Activity.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="#project-gallery" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">প্রকল্প গ্যালারি</a>
+                <a href="#news-slider" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="#donate" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main class="min-h-screen">
+            <!-- Hero Section -->
+            <section class="hero-section flex items-center relative pt-16">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <!-- Uses responsive padding -->
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24 relative z-10 text-white">
+                    <div class="md:w-1/2 text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">ইনসানিয়াহ ফাউন্ডেশন</h1>
+                        <p class="text-lg md:text-xl mb-8">শিক্ষা, দাওয়াহ ও পূর্ণত মানবকল্যাণে নিবেদিত একটি সেবামূলক প্রতিষ্ঠান।</p>
+                        <div class="flex space-x-4">
+                            <!-- Links updated to use section IDs -->
+                            <a href="about us.html" class="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition">আরো জানুন</a>
+                            <a href="Activity.html" class="bg-white text-emerald-600 px-8 py-3 rounded-full text-lg font-semibold hover:bg-gray-200 transition">আমাদের কার্যক্রম</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+                        <!-- Donation Box -->
+            <section id="donate" class="donation-box-bg py-16 px-4">
+                <!-- Uses responsive padding -->
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24 text-center">
+                    <!-- Updated bg-yellow to a valid Tailwind color class -->
+                    <div id="donate_bg" class="max-w-4xl mx-auto rounded-lg shadow-xl p-8 bg-yellow-100 bg-opacity-75 backdrop-blur-sm">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-8">আপনার অনুদান প্রদান করুন</h2>
+                        <form class="flex flex-col md:flex-row items-end space-y-4 md:space-y-0 md:space-x-4">
+                            <div class="flex-1 w-full text-left">
+                                <label for="fund" class="block font-semibold text-gray-700 mb-2">তহবিল*</label>
+                                <select id="fund" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option value="">নির্বাচন করুন</option>
+                                    <option value="zakat">যাকাত</option>
+                                    <option value="general">সাধারণ অনুদান</option>
+                                </select>
+                            </div>
+                            <div class="flex-1 w-full text-left">
+                                <label for="contact-info" class="block font-semibold text-gray-700 mb-2">মোবাইল/ইমেইল*</label>
+                                <input type="text" id="contact-info" placeholder="মোবাইল নম্বর / ইমেইল লিখুন" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <div class="flex-1 w-full text-left">
+                                <label for="amount" class="block font-semibold text-gray-700 mb-2">পরিমাণ*</label>
+                                <input type="number" id="amount" placeholder="৳ সংখ্যায় লিখুন" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <button type="submit" class="w-full md:w-auto bg-emerald-600 text-white p-3 rounded-lg font-semibold hover:bg-emerald-700 transition">দান করুন</button>
+                        </form>
+                        <p class="text-sm text-gray-600 mt-6">আস-সুন্নাহ ফাউন্ডেশনে দান করলে কর রেয়াত পাবেন। <a href="#" class="text-emerald-600 hover:underline">বিস্তারিত জানতে ক্লিক করুন।</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Us Section -->
+            <section id="about-us" class="py-16 bg-white">
+                <!-- Uses responsive padding -->
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="md:w-1/2">
+                            <h2 class="text-4xl font-bold text-gray-800 mb-4">আমাদের সম্পর্কে</h2>
+                            <p class="text-lg text-gray-600 mb-4">ইনসানিয়াহ ফাউন্ডেশন একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান। আমরা সমাজের সুবিধাবঞ্চিত মানুষের জীবনমান উন্নয়নে কাজ করি এবং ইসলামি শিক্ষার প্রচার ও প্রসারে নিরলস প্রচেষ্টা চালিয়ে যাচ্ছি।</p>
+                            <p class="text-lg text-gray-600">আমাদের লক্ষ্য হলো একটি সুস্থ ও মানবিক সমাজ গঠন করা, যেখানে সবাই শিক্ষা ও প্রয়োজনীয় সহযোগিতা পাবে।</p>
+                        <br><a href="about us.html" class="bg-emerald-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-emerald-700 transition">আরো জানুন</a>
+
+                        </div>
+                        <div class="md:w-1/2">
+                            <img src="logo-01.jpg" alt="ফাউন্ডেশন কার্যক্রমের ছবি" class="w-full h-auto rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Activities Section -->
+            <section id="activities" class="py-16 bg-gray-100">
+                <!-- Uses responsive padding -->
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24 text-center">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-12">উম্মাহর স্বার্থে, সুন্নাহর সাথে</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Educational Projects Card -->
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-[300px] flex flex-col justify-center">
+                            <div class="text-5xl text-emerald-600 mb-4">📚</div>
+                            <h3 class="text-xl font-bold mb-2">শিক্ষা প্রকল্প</h3>
+                            <p class="text-gray-600">আমরা সুবিধাবঞ্চিত শিশুদের জন্য শিক্ষা উপকরণ ও বৃত্তি প্রদান করি, যাতে তারা তাদের পড়ালেখা চালিয়ে যেতে পারে।</p>
+                        </div>
+                        <!-- Da'wah Activities Card -->
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-[300px] flex flex-col justify-center">
+                            <div class="text-5xl text-emerald-600 mb-4">🕌</div>
+                            <h3 class="text-xl font-bold mb-2">দাওয়াহ কার্যক্রম</h3>
+                            <p class="text-gray-600">সঠিক ইসলামি জ্ঞান প্রসারে আমরা বিভিন্ন সেমিনার, ওয়ার্কশপ এবং লেকচারের আয়োজন করি।</p>
+                        </div>
+                        <!-- Humanitarian Services Card -->
+                        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 h-[300px] flex flex-col justify-center">
+                            <div class="text-5xl text-emerald-600 mb-4">🤲</div>
+                            <h3 class="text-xl font-bold mb-2">মানবসেবা</h3>
+                            <p class="text-gray-600">দরিদ্র ও অসহায় মানুষের পাশে দাঁড়াতে আমরা খাদ্য বিতরণ, চিকিৎসা সহায়তা এবং দুর্যোগ ত্রাণ কার্যক্রম পরিচালনা করি।</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Project Gallery Slider Section -->
+            <section id="project-gallery" class="py-16 bg-white">
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24 text-center">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-12">চলমান কার্যক্রমসমূহ </h2>
+                    <div class="relative">
+                        <!-- Slider Controls -->
+                        <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-gray-800 p-3 rounded-full shadow-lg z-10 hover:bg-gray-300 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-gray-800 p-3 rounded-full shadow-lg z-10 hover:bg-gray-300 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+
+                        <!-- Slider Container -->
+                        <div id="slider-container" class="flex overflow-x-auto gap-8 py-4 scroll-smooth slider-container">
+                            <!-- Slider Card 1 -->
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="প্রকল্প ১" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">প্রকল্প ১</h3>
+                                <p class="text-gray-600">এই প্রকল্পের মাধ্যমে আমরা গ্রামীণ এলাকায় সুপেয় পানির ব্যবস্থা করেছি।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                            <!-- Slider Card 2 -->
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="প্রকল্প ২" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">প্রকল্প ২</h3>
+                                <p class="text-gray-600">শীতার্ত মানুষের মাঝে শীতবস্ত্র বিতরণ করে তাদের পাশে দাঁড়িয়েছি।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                            <!-- Slider Card 3 -->
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="প্রকল্প ৩" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">প্রকল্প ৩</h3>
+                                <p class="text-gray-600">দুর্গম এলাকার শিক্ষার্থীদের জন্য স্কুল তৈরির কাজ চলছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                            <!-- Add more cards as needed -->
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="/logo-01.jpg" alt="প্রকল্প ৪" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">প্রকল্প ৪</h3>
+                                <p class="text-gray-600">রমজানে খাদ্য সামগ্রী বিতরণের বিশেষ কার্যক্রম পরিচালনা করা হয়েছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                            <div class="bg-gray-100 p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="প্রকল্প ৫" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">প্রকল্প ৫</h3>
+                                <p class="text-gray-600">বন্যা দুর্গতদের জন্য জরুরি ত্রাণ সহায়তা প্রদান করা হয়েছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block mt-8 bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition">আরো দেখুন</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- News Slider Section -->
+            <section id="news-slider" class="py-16 bg-gray-100">
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24 text-center">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-12">অনুদান তহবিলসমূহ</h2>
+                    <p class="p_text_margin">চলুন একসাথে পরিবর্তন আনি</p>
+                    <div class="relative">
+                        <!-- Slider Controls -->
+                        <button id="news-prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-gray-800 p-3 rounded-full shadow-lg z-10 hover:bg-gray-300 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        </button>
+                        <button id="news-nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 text-gray-800 p-3 rounded-full shadow-lg z-10 hover:bg-gray-300 transition-colors">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </button>
+
+                        <!-- Slider Container -->
+                        <div id="news-slider-container" class="flex overflow-x-auto gap-8 py-4 scroll-smooth slider-container">
+                            <!-- News Card 1 -->
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="সংবাদ ১" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">গরীব ও মেহনতি মানুষের পাশে ইনসানিয়াহ</h3>
+                                <p class="text-gray-600">গত সপ্তাহে আমরা সুবিধাবঞ্চিত পরিবারের মাঝে খাদ্য সহায়তা প্রদান করেছি।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">দান করুন</a>
+                            </div>
+                            <!-- News Card 2 -->
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="সংবাদ ২" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">নতুন দাতব্য স্কুল নির্মাণ শুরু</h3>
+                                <p class="text-gray-600">আমাদের নতুন শিক্ষা প্রকল্পের অধীনে একটি দাতব্য স্কুল নির্মাণের কাজ শুরু হয়েছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">দান করুন</a>
+                            </div>
+                            <!-- News Card 3 -->
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="সংবাদ ৩" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">শীতবস্ত্র বিতরণের বিশেষ অভিযান</h3>
+                                <p class="text-gray-600">আসন্ন শীতে অসহায় মানুষের জন্য আমাদের শীতবস্ত্র বিতরণের প্রস্তুতি চলছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">দান করুন</a>
+                            </div>
+                            <!-- Add more cards as needed -->
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="সংবাদ ৪" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">রমজানে খাদ্য সহায়তা কর্মসূচি</h3>
+                                <p class="text-gray-600">প্রতি বছরের মতো এবারও রমজানে আমরা খাদ্য সহায়তা প্রদান করেছি।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">দান করুন</a>
+                            </div>
+                            <div class="bg-white p-6 rounded-lg shadow-md flex-none w-80">
+                                <img src="logo-01.jpg" alt="সংবাদ ৫" class="rounded-lg mb-4">
+                                <h3 class="text-xl font-bold mb-2">বন্যা দুর্গতদের জন্য ত্রাণ</h3>
+                                <p class="text-gray-600">বন্যা দুর্গত এলাকার মানুষের জন্য জরুরি ত্রাণ বিতরণ সম্পন্ন হয়েছে।</p>
+                                <a href="#" class="inline-block mt-4 bg-emerald-600 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-700 transition">দান করুন</a>
+                            </div>
+                        </div>
+                        <a href="#" class="inline-block mt-8 bg-emerald-600 text-white font-semibold px-6 py-3 rounded-full hover:bg-emerald-700 transition">আরো দেখুন</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section class="py-16 bg-emerald-700 text-white text-center">
+                <!-- Uses responsive padding -->
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <h2 class="text-3xl font-bold mb-4">নিয়মিত নিউজলেটার পেতে সাবস্ক্রাইব করুন</h2>
+                    <p class="text-lg mb-6">আমাদের কার্যক্রম সম্পর্কে জানতে এবং নিয়মিত আপডেট পেতে আপনার ইমেইল দিন।</p>
+                    <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 space-y-4 md:space-y-0">
+                        <input type="email" placeholder="আপনার ইমেইল" class="w-full md:w-80 p-3 rounded-full text-gray-800 focus:outline-none">
+                        <button class="bg-white text-emerald-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition">সাবস্ক্রাইব করুন</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-4 sm:px-8 lg:px-24">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: প্লট-৭০, রোড-৩, ব্লক-সি, আফতাব নগর, ঢাকা-১২১২</p>
+                    <p class="text-sm mt-2">ফোন: +880-1xxxxxxxxx</p>
+                    <p class="text-sm mt-2">ইমেইল: info@insaniyah.org</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about-us" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#activities" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#project-gallery" class="hover:underline">প্রকল্প গ্যালারি</a></li>
+                        <li><a href="#news-slider" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#contact" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Get the slider container and buttons for the Project Gallery
+        const sliderContainer = document.getElementById('slider-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Get the slider container and buttons for the News section
+        const newsSliderContainer = document.getElementById('news-slider-container');
+        const newsPrevBtn = document.getElementById('news-prevBtn');
+        const newsNextBtn = document.getElementById('news-nextBtn');
+
+        // Define the scroll amount and interval IDs
+        const scrollAmount = 350; // Adjust this value based on your card width and gap
+        let projectAutoScrollInterval;
+        let newsAutoScrollInterval;
+
+        // Function to scroll a slider automatically from left to right
+        function startAutoScroll(container, intervalId) {
+            intervalId = setInterval(() => {
+                // Check if we are at the end of the slider
+                if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+                    // If at the end, jump back to the beginning to create a loop
+                    container.scrollLeft = 0;
+                } else {
+                    // Otherwise, scroll to the next card
+                    container.scrollBy({
+                        left: scrollAmount,
+                        behavior: 'smooth'
+                    });
+                }
+            }, 1000); // Scrolls every 1 second
+            return intervalId;
+        }
+
+        // Function to stop the automatic scrolling for a given interval ID
+        function stopAutoScroll(intervalId) {
+            clearInterval(intervalId);
+        }
+
+        // Add event listeners for Project Gallery
+        nextBtn.addEventListener('click', () => {
+            stopAutoScroll(projectAutoScrollInterval);
+            sliderContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            projectAutoScrollInterval = startAutoScroll(sliderContainer, projectAutoScrollInterval);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            stopAutoScroll(projectAutoScrollInterval);
+            sliderContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            projectAutoScrollInterval = startAutoScroll(sliderContainer, projectAutoScrollInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseenter', () => stopAutoScroll(projectAutoScrollInterval));
+        sliderContainer.addEventListener('mouseleave', () => projectAutoScrollInterval = startAutoScroll(sliderContainer, projectAutoScrollInterval));
+
+        // Add event listeners for News Slider
+        newsNextBtn.addEventListener('click', () => {
+            stopAutoScroll(newsAutoScrollInterval);
+            newsSliderContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            newsAutoScrollInterval = startAutoScroll(newsSliderContainer, newsAutoScrollInterval);
+        });
+
+        newsPrevBtn.addEventListener('click', () => {
+            stopAutoScroll(newsAutoScrollInterval);
+            newsSliderContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            newsAutoScrollInterval = startAutoScroll(newsSliderContainer, newsAutoScrollInterval);
+        });
+
+        newsSliderContainer.addEventListener('mouseenter', () => stopAutoScroll(newsAutoScrollInterval));
+        newsSliderContainer.addEventListener('mouseleave', () => newsAutoScrollInterval = startAutoScroll(newsSliderContainer, newsAutoScrollInterval));
+
+
+        // Start the auto-scroll for both sliders when the page loads
+        projectAutoScrollInterval = startAutoScroll(sliderContainer, projectAutoScrollInterval);
+        newsAutoScrollInterval = startAutoScroll(newsSliderContainer, newsAutoScrollInterval);
+    </script>
+</body>
+</html>

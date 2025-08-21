@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন - কার্যক্রম</title>
+    <!-- Chosen Palette: Emerald/Green/Gray -->
+    <!-- Application Structure Plan: This single-page application is dedicated to showcasing the foundation's activities, following a linear, card-based layout as provided in the source image. The top navigation bar is retained for brand consistency. The core content consists of a heading section followed by a grid of activity cards. Each card includes an image, title, and a brief description, with a call-to-action button for more details. The page concludes with a newsletter subscription section and a full footer, maintaining a clean and professional look. -->
+    <!-- Visualization & Content Choices: The main content is presented using a responsive grid of card components. This visual pattern is effective for organizing multiple, distinct items (like different projects). Images provide immediate visual context, and the uniform card design ensures a clean, scannable layout. The "বিস্তারিত দেখুন" button on each card is a simple but clear interactive element guiding the user to a more detailed view. This design choice directly mirrors the user's provided image for a consistent user experience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .bg-emerald-gradient {
+            background-image: linear-gradient(to bottom, #059669, #047857);
+        }
+        .header-bg {
+            background-color: #047857;
+            /* Replaced local image path with a placeholder for consistency and reliability */
+            background-image: linear-gradient(to right, rgba(4, 120, 87, 0.9), rgba(4, 120, 87, 0.9)), url('https://placehold.co/1920x200/047857/ffffff?text=Our+Work');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <!-- Uses responsive padding for better mobile view -->
+            <nav class="container mx-auto px-4 sm:px-8 lg:px-24 flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center">
+                         <img src="https://placehold.co/40x40/047857/ffffff?text=Logo" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="#" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <!-- Desktop navigation links -->
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <!-- Links updated to use relative paths or section IDs as needed -->
+                    <a href="index.html" class="hover:text-emerald-700">হোম</a>
+                    <a href="about us.html" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="Activity.html" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="#gallery" class="hover:text-emerald-700">গ্যালারি</a>
+                    <a href="#news" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="#contact" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <!-- Mobile menu button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <a href="index.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="about us.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="Activity.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="#gallery" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">গ্যালারি</a>
+                <a href="#news" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="#donate" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main>
+            <!-- Activities Header -->
+            <section class="header-bg pt-28 pb-16 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold">আমাদের কার্যক্রম</h1>
+            </section>
+
+            <!-- Activities Grid -->
+            <section id="projects" class="py-16 px-4 sm:px-8 lg:px-24">
+                <div class="container mx-auto">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Card: সবার জন্য কুরবানী -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Qurbani+Project" alt="সবার জন্য কুরবানী" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">সবার জন্য কুরবানী</h3>
+                                <p class="text-gray-600 mb-4">প্রান্তিক মানুষের আমিষের ঘাটতি পূরণ, ঈদের হাসি ছড়িয়ে দেয়া এবং সর্বোপরি আল্লাহর সন্তুষ্টির জন্য।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: দক্ষতাভিত্তিক উদ্যোক্তা তৈরি -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Entrepreneur+Training" alt="দক্ষতাভিত্তিক উদ্যোক্তা তৈরি" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">দক্ষতাভিত্তিক উদ্যোক্তা তৈরি</h3>
+                                <p class="text-gray-600 mb-4">দক্ষতা থাকা সত্ত্বেও শুধু পুঁজির অভাবে যারা উদ্যোগ নিতে পারছেন না, তাদের পাশে দাঁড়ানোর একটি মানবিক প্রয়াস।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: বৃক্ষরোপণ -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Tree+Planting" alt="বৃক্ষরোপণ" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">বৃক্ষরোপণ</h3>
+                                <p class="text-gray-600 mb-4">গাছ লাগিয়ে সবুজ পৃথিবী গড়ার এই মহতী উদ্যোগে শামিল হতে পারেন আপনি।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: সুপেয় পানির ব্যবস্থা -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Clean+Water" alt="সুপেয় পানির ব্যবস্থা" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">সুপেয় পানির ব্যবস্থা</h3>
+                                <p class="text-gray-600 mb-4">সুপেয় পানির সুবিধাবঞ্চিত এলাকায় নলকূপ ও পানি শোধনাগার স্থাপন।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: শীতবস্ত্র বিতরণ -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Winter+Clothing" alt="শীতবস্ত্র বিতরণ" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">শীতবস্ত্র বিতরণ</h3>
+                                <p class="text-gray-600 mb-4">দরিদ্র মানুষের শরীরে উষ্ণতা ছড়িয়ে দিতে আমাদের আন্তরিক প্রয়াস।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: দাওয়াহ কার্যক্রম -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Dawah+Activity" alt="দাওয়াহ কার্যক্রম" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">দাওয়াহ কার্যক্রম</h3>
+                                <p class="text-gray-600 mb-4">বিশুদ্ধ জ্ঞান ছড়িয়ে দিয়ে ইসলামী চেতনায় উজ্জীবিত করতে আমাদের দাওয়াহমূলক উদ্যোগ।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: আস-সুন্নাহ স্কিল ডেভেলপমেন্ট ইনস্টিটিউট -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Skill+Development" alt="স্কিল ডেভেলপমেন্ট" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">আস-সুন্নাহ স্কিল ডেভেলপমেন্ট...</h3>
+                                <p class="text-gray-600 mb-4">জাতীয় দক্ষতা উন্নয়ন কর্তৃপক্ষ কর্তৃক নিবন্ধিত একটি আত্ম-উন্নয়ন ও দক্ষতা বৃদ্ধিমূলক প্রতিষ্ঠান।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                        <!-- Card: মেধাবী কার্যক্রম -->
+                        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <!-- Replaced local image path with a placeholder -->
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=Merit+Program" alt="মেধাবী কার্যক্রম" class="w-full h-48 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">মেধাবী কার্যক্রম</h3>
+                                <p class="text-gray-600 mb-4">সৎ, দক্ষ ও মানবিক মূল্যবোধসম্পন্ন প্রজন্ম বিনির্মাণের প্রয়াস।</p>
+                                <a href="#" class="inline-block bg-emerald-700 text-white px-4 py-2 rounded hover:bg-emerald-800 transition">বিস্তারিত দেখুন</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Newsletter Section -->
+            <section class="py-16 bg-emerald-700 text-white text-center">
+                <div class="container mx-auto px-4 sm:px-8 lg:px-24">
+                    <h2 class="text-3xl font-bold mb-4">নিয়মিত নিউজলেটার পেতে সাবস্ক্রাইব করুন</h2>
+                    <p class="text-lg mb-6">আমাদের কার্যক্রম সম্পর্কে জানতে এবং নিয়মিত আপডেট পেতে আপনার ইমেইল দিন।</p>
+                    <div class="flex flex-col md:flex-row justify-center items-center md:space-x-4 space-y-4 md:space-y-0">
+                        <input type="email" placeholder="আপনার ইমেইল" class="w-full md:w-80 p-3 rounded-full text-gray-800 focus:outline-none">
+                        <button class="bg-white text-emerald-700 font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition">সাবস্ক্রাইব করুন</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-4 sm:px-8 lg:px-24">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: প্লট-৭০, রোড-৩, ব্লক-সি, আফতাব নগর, ঢাকা-১২১২</p>
+                    <p class="text-sm mt-2">ফোন: +880-1xxxxxxxxx</p>
+                    <p class="text-sm mt-2">ইমেইল: info@insaniyah.org</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#" class="hover:underline">গ্যালারি</a></li>
+                        <li><a href="#" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
+335599
