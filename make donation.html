@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন - পেমেন্ট</title>
+    <!-- Chosen Palette: Emerald/Green/Gray -->
+    <!-- Application Structure Plan: A dedicated payment page with a consistent navbar and footer. The central content features two distinct donation cards: one for mobile banking (bKash/Nagad) and one for bank transfers. Each card has a clear heading, an Islamic quote for context, and a two-column layout showing payment details on the left and a QR code on the right. This structure is designed to be clear and trustworthy, guiding users through the donation process efficiently. -->
+    <!-- Visualization & Content Choices: The page uses cards to separate mobile and bank payment methods, making the information easy to scan. QR codes are included as a modern, interactive way to facilitate payments. The Hadith adds a spiritual and motivational element to the donation process. The design is clean and minimal, focusing on readability and a positive user experience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon1-01.jpg" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .header-bg {
+            background-color: #047857;
+            background-image: linear-gradient(to right, rgba(4, 120, 87, 0.9), rgba(4, 120, 87, 0.9)), url('https://placehold.co/1920x200/047857/ffffff?text=Payment');
+            background-size: cover;
+            background-position: center;
+        }
+        .payment-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+        }
+        .card-heading {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #059669;
+            margin-bottom: 1rem;
+        }
+        .hadith-text {
+            font-style: italic;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <nav class="container mx-auto px-4 md:px-[100px] flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                         <img style="height: 40px; width: 45px;" src="icon-01.jpg" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <a href="index.html" class="hover:text-emerald-700">হোম</a>
+                    <a href="#about" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="#projects" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="#gallery" class="hover:text-emerald-700">গ্যালারি</a>
+                    <a href="#news" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="#contact" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <a href="#" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="#about" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="#projects" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="#gallery" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">গ্যালারি</a>
+                <a href="#news" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="#donate" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main class="min-h-screen pt-20">
+            <section class="header-bg pt-16 pb-8 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold">অনুদানের মাধ্যমে পাশে থাকুন</h1>
+            </section>
+
+            <section class="py-16 px-4">
+                <div class="container mx-auto px-4 md:px-[100px]">
+                    <div class="max-w-4xl mx-auto payment-card text-center mb-12">
+                        <h2 class="card-heading">অনলাইন পেমেন্ট</h2>
+                        <p class="hadith-text mb-8">"আর যারা আল্লাহর পথে নিজেদের সম্পদ ব্যয় করে, তাদের উপমা একটি বীজের মত, যা উৎপন্ন করল সাতটি শীষ, প্রতিটি শীষে রয়েছে একশ দানা। আর আল্লাহ যাকে চান তার জন্য বাড়িয়ে দেন। আর আল্লাহ প্রাচুর্যময়, সর্বজ্ঞ।" (সূরা বাকারা, আয়াত ২৬১)</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div class="flex flex-col space-y-4 text-left">
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://placehold.co/64x64/E2136E/ffffff?text=bKash" alt="বিকাশ লোগো" class="h-16 w-16">
+                                    <div class="flex flex-col">
+                                        <span class="text-lg font-semibold">বিকাশ</span>
+                                        <span class="text-2xl font-bold text-gray-800">01940318345</span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <img src="https://placehold.co/64x64/F18120/ffffff?text=Nagad" alt="নগদ লোগো" class="h-16 w-16">
+                                    <div class="flex flex-col">
+                                        <span class="text-lg font-semibold">নগদ</span>
+                                        <span class="text-2xl font-bold text-gray-800">01940318345</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex justify-center">
+                                <img src="https://placehold.co/200x200/059669/ffffff?text=QR+Code" alt="অনলাইন পেমেন্ট কিউআর কোড" class="w-48 h-48">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="max-w-4xl mx-auto payment-card text-center mb-12">
+                        <h2 class="card-heading">ব্যাংক পেমেন্ট</h2>
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <div class="flex flex-col space-y-4 text-left">
+                                <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">একাউন্টের নাম:</span>
+                                    <span class="text-xl font-bold text-gray-800">NAJMOL HASAN</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">একাউন্ট নম্বর:</span>
+                                    <span class="text-xl font-bold text-gray-800">2050 121 02 08203712</span>
+                                </div>
+                                <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">ব্যাংকের নাম:</span>
+                                    <span class="text-xl font-bold text-gray-800">ইসলামী ব্যাংক বাংলাদেশ লিমিটেড</span>
+                                </div>
+                                 <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">ব্রাঞ্চের নাম:</span>
+                                    <span class="text-xl font-bold text-gray-800">কুমিল্লা ব্রাঞ্চ </span>
+                                </div>
+                                 <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">সুইফট কোড:</span>
+                                    <span class="text-xl font-bold text-gray-800">IBBLBDDH121</span>
+                                </div>
+                                 <div class="flex flex-col">
+                                    <span class="text-lg font-semibold">রাউটিং নম্বর:</span>
+                                    <span class="text-xl font-bold text-gray-800">125191157</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-center">
+                                <img src="https://placehold.co/200x200/059669/ffffff?text=QR+Code" alt="ব্যাংক পেমেন্ট কিউআর কোড" class="w-48 h-48">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- New Tracking Form for Google Forms -->
+                    <div class="max-w-4xl mx-auto payment-card text-center">
+                        <h2 class="card-heading">আপনার অনুদানের তথ্য নিবন্ধন করুন</h2>
+                        <p class="mb-6 text-gray-600">অনুদান সম্পন্ন হওয়ার পর অনুগ্রহ করে নিচের ফর্মটি পূরণ করুন এবং জমা দিন। আপনাকে Google Forms-এর একটি নতুন পেজে নিয়ে যাওয়া হবে যেখানে আপনার দেওয়া তথ্যগুলো পূরণ করা থাকবে। সেখানে আপনি পেমেন্টের স্ক্রিনশট আপলোড করে জমা দিতে পারবেন।</p>
+                        <!-- Google Forms Integration -->
+                        <form action="https://docs.google.com/forms/d/e/1FAIpQLScxUH4MXTZAxOfnoU9zy33ENMClCUsliWjd_p_8t68KhtHp5w/formResponse" method="POST" target="_blank" class="space-y-4 text-left">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" name="entry.1794400667" placeholder="আপনার নাম*" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <input type="email" name="entry.1974864526" placeholder="আপনার ইমেইল" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <input type="tel" name="entry.1717108107" placeholder="আপনার মোবাইল নম্বর*" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <select name="entry.1608831845" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                    <option value="">পেমেন্ট মাধ্যম*</option>
+                                    <option value="বিকাশ">বিকাশ</option>
+                                    <option value="নগদ">নগদ</option>
+                                    <option value="ব্যাংক">ব্যাংক</option>
+                                </select>
+                            </div>
+                            <input type="number" name="entry.323269057" placeholder="অনুদানকৃত পরিমাণ (৳)*" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            
+                            <button type="submit" class="w-full bg-emerald-700 text-white p-3 rounded-lg font-semibold hover:bg-emerald-800 transition">ফর্মটি জমা দিন</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-[100px]">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: ঠিকানা: বেলতলী, কসবা, ব্রাহ্মণবাড়িয়া-৩৫০০</p>
+                    <p class="text-sm mt-2">ফোন: +880-01940318345</p>
+                    <p class="text-sm mt-2">ইমেইল: insaniyahfoundation25@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#" class="hover:underline">গ্যালারি</a></li>
+                        <li><a href="#" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

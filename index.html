@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon1-01.jpg" type="image/x-icon">
     <style>
         /* Sets the default font for the entire body */
         body {
@@ -56,10 +57,10 @@
             <!-- Uses responsive padding for better mobile view -->
             <nav class="container mx-auto px-4 sm:px-8 lg:px-24 flex items-center justify-between p-4">
                 <div class="flex items-center space-x-2">
-                    <div class="w-10 h-10 bg-emerald-700 rounded-full flex items-center justify-center">
-                        <img src="https://placehold.co/40x40/047857/ffffff?text=Logo" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                         <img style="height: 40px; width: 45px;" src="icon-01.jpg" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
                     </div>
-                    <a href="#" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                    <a href="index.html" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
                 </div>
                 <!-- Desktop navigation links -->
                 <div class="hidden md:flex space-x-6 font-medium items-center">
@@ -71,7 +72,7 @@
                     <a href="#news-slider" class="hover:text-emerald-700">সংবাদ</a>
                     <a href="#contact" class="hover:text-emerald-700">যোগাযোগ</a>
                 </div>
-                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <a href="make donation.html" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
                 <!-- Mobile menu button -->
                 <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -86,7 +87,7 @@
                 <a href="#project-gallery" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">প্রকল্প গ্যালারি</a>
                 <a href="#news-slider" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
                 <a href="#contact" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
-                <a href="#donate" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+                <a href="make donation.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
             </div>
         </header>
 
@@ -125,16 +126,16 @@
                                 </select>
                             </div>
                             <div class="flex-1 w-full text-left">
-                                <label for="contact-info" class="block font-semibold text-gray-700 mb-2">মোবাইল/ইমেইল*</label>
+                                <label for="contact-info" class="block font-semibold text-gray-700 mb-2">মোবাইল*</label>
                                 <input type="text" id="contact-info" placeholder="মোবাইল নম্বর / ইমেইল লিখুন" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
                             </div>
                             <div class="flex-1 w-full text-left">
                                 <label for="amount" class="block font-semibold text-gray-700 mb-2">পরিমাণ*</label>
                                 <input type="number" id="amount" placeholder="৳ সংখ্যায় লিখুন" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
                             </div>
-                            <button type="submit" class="w-full md:w-auto bg-emerald-600 text-white p-3 rounded-lg font-semibold hover:bg-emerald-700 transition">দান করুন</button>
+                            <button type="submit" class="w-full md:w-auto bg-emerald-600 text-white p-3 rounded-lg font-semibold hover:bg-emerald-700 transition"><a href="make donation.html">দান করুন</a></button>
                         </form>
-                        <p class="text-sm text-gray-600 mt-6">আস-সুন্নাহ ফাউন্ডেশনে দান করলে কর রেয়াত পাবেন। <a href="#" class="text-emerald-600 hover:underline">বিস্তারিত জানতে ক্লিক করুন।</a></p>
+                        <p class="text-sm text-gray-600 mt-6">সমাজ ও দেশকে এগিয়ে নিতে সামর্থ অনুযায়ী দান করুন <a href="make donation.html" class="text-emerald-600 hover:underline">বিস্তারিত জানতে ক্লিক করুন।</a></p>
                     </div>
                 </div>
             </section>
@@ -326,15 +327,15 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
-                    <p class="text-sm">ঠিকানা: প্লট-৭০, রোড-৩, ব্লক-সি, আফতাব নগর, ঢাকা-১২১২</p>
-                    <p class="text-sm mt-2">ফোন: +880-1xxxxxxxxx</p>
-                    <p class="text-sm mt-2">ইমেইল: info@insaniyah.org</p>
+                    <p class="text-sm">ঠিকানা: বেলতলী, কসবা, ব্রাহ্মণবাড়িয়া-৩৫০০</p>
+                    <p class="text-sm mt-2">ফোন: +880-01940318345</p>
+                    <p class="text-sm mt-2">ইমেইল: insaniyahfoundation25@gmail.com</p>
                 </div>
                 <div>
                     <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#about-us" class="hover:underline">আমাদের সম্পর্কে</a></li>
-                        <li><a href="#activities" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="about us.html" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="Activity.html" class="hover:underline">কার্যক্রম</a></li>
                         <li><a href="#project-gallery" class="hover:underline">প্রকল্প গ্যালারি</a></li>
                         <li><a href="#news-slider" class="hover:underline">সংবাদ</a></li>
                         <li><a href="#contact" class="hover:underline">যোগাযোগ</a></li>
