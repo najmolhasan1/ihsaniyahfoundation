@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন - যোগাযোগ</title>
+    <!-- Loads Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Loads the Hind Siliguri font for Bengali text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon1-01.jpg" type="image/x-icon">
+    <style>
+        /* Sets the default font for the entire body */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        /* Custom styles for the header background */
+        .header-bg {
+            background-color: #047857;
+            background-image: linear-gradient(to right, rgba(4, 120, 87, 0.9), rgba(4, 120, 87, 0.9)), url('https://placehold.co/1920x200/047857/ffffff?text=Contact');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Custom styles for the contact card */
+        .contact-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+        }
+    </style>
+    <!-- Loads Alpine.js for interactive elements like the mobile menu -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <!-- Uses responsive padding for better mobile view -->
+            <nav class="container mx-auto px-4 md:px-[100px] flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                         <img style="height: 40px; width: 45px;" src="icon-01.jpg" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <!-- Desktop navigation links -->
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <a href="index.html" class="hover:text-emerald-700">হোম</a>
+                    <a href="about us.html" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="Activity.html" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="gallery.html" class="hover:text-emerald-700">গ্যালারি</a>
+                    <a href="#news" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="contact.html" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <!-- Mobile menu button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <!-- Mobile navigation links -->
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <a href="index.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="about us.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="Activity.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="gallery.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">গ্যালারি</a>
+                <a href="#news" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="contact.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="make donation.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main class="min-h-screen pt-20">
+            <!-- Page Header -->
+            <section class="header-bg pt-16 pb-8 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold">যোগাযোগ</h1>
+            </section>
+            
+            <!-- Contact Section with Form -->
+            <section id="contact" class="py-16 px-4">
+                <div class="container mx-auto px-4 md:px-[100px]">
+                    <div class="max-w-4xl mx-auto contact-card text-center">
+                        <h2 class="card-heading mb-8">আমাদের সাথে যোগাযোগ করুন</h2>
+                        <p class="mb-8 text-gray-600">আমাদের কার্যক্রম সম্পর্কে যেকোনো প্রশ্ন বা পরামর্শের জন্য নিচের ফর্মটি পূরণ করুন।</p>
+                        
+                        <!-- Formspree integration for the contact form -->
+                        <form action="https://formspree.io/f/xpwjzakz" method="POST" class="space-y-4 text-left">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <input type="text" name="name" placeholder="আপনার নাম*" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                                <input type="email" name="_replyto" placeholder="আপনার ইমেইল" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            </div>
+                            <input type="text" name="subject" placeholder="বিষয়" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500">
+                            <textarea name="message" placeholder="আপনার বার্তা*" rows="5" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                            
+                            <button type="submit" class="w-full bg-emerald-700 text-white p-3 rounded-lg font-semibold hover:bg-emerald-800 transition">বার্তা পাঠান</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-[100px]">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: ঠিকানা: বেলতলী, কসবা, ব্রাহ্মণবাড়িয়া-৩৫০০</p>
+                    <p class="text-sm mt-2">ফোন: +880-01940318345</p>
+                    <p class="text-sm mt-2">ইমেইল: insaniyahfoundation25@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#" class="hover:underline">গ্যালারি</a></li>
+                        <li><a href="#" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন - সংবাদ</title>
+    <!-- Loads Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Loads the Hind Siliguri font for Bengali text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon1-01.jpg" type="image/x-icon">
+    <style>
+        /* Sets the default font for the entire body */
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        /* Custom styles for the header background */
+        .header-bg {
+            background-color: #047857;
+            background-image: linear-gradient(to right, rgba(4, 120, 87, 0.9), rgba(4, 120, 87, 0.9)), url('https://placehold.co/1920x200/047857/ffffff?text=News');
+            background-size: cover;
+            background-position: center;
+        }
+        /* Custom styles for the news card */
+        .news-card {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .read-more-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            background-color: #059669;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .read-more-btn:hover {
+            background-color: #047857;
+        }
+        .modal {
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            max-width: 800px;
+            width: 90%;
+            position: relative;
+        }
+        .close-btn {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Loads Alpine.js for interactive elements like the mobile menu -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <!-- Uses responsive padding for better mobile view -->
+            <nav class="container mx-auto px-4 md:px-[100px] flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                         <img style="height: 40px; width: 45px;" src="icon-01.jpg" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <!-- Desktop navigation links -->
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <a href="index.html" class="hover:text-emerald-700">হোম</a>
+                    <a href="about us.html" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="Activity.html" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="gallery.html" class="hover:text-emerald-700">গ্যালারি</a>
+                    <a href="news.html" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="contact.html" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <!-- Mobile menu button -->
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <!-- Mobile navigation links -->
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <a href="index.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="about us.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="Activity.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="gallery.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">গ্যালারি</a>
+                <a href="news.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="contact.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="make donation.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main class="min-h-screen pt-20">
+            <!-- Page Header -->
+            <section class="header-bg pt-16 pb-8 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold">সংবাদ ও ব্লগ</h1>
+            </section>
+            
+            <!-- Main News Section -->
+            <section id="news" class="py-16 px-4">
+                <div class="container mx-auto px-4 md:px-[100px]">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- News Card 1 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+1" alt="সংবাদের ছবি ১" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">সাম্প্রতিক বৃক্ষরোপণ কর্মসূচির খবর</h3>
+                                <p class="text-sm text-gray-600 mb-4">আমাদের সাম্প্রতিক বৃক্ষরোপণ কর্মসূচিতে হাজারো চারা বিতরণ করা হয়েছে। এটি পরিবেশ সুরক্ষায় আমাদের অঙ্গীকারের অংশ।</p>
+                                <button onclick="showModal('বৃক্ষরোপণ কর্মসূচির খবর', 'https://placehold.co/600x400/047857/ffffff?text=News+1', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট। আপনারা এখানে ব্লগের সম্পূর্ণ লেখা দেখতে পারবেন। আমাদের সাম্প্রতিক বৃক্ষরোপণ কর্মসূচিতে হাজারো চারা বিতরণ করা হয়েছে। এটি পরিবেশ সুরক্ষায় আমাদের অঙ্গীকারের অংশ। আমরা প্রতি বছর এমন কর্মসূচি হাতে নিই। এই বছর আমরা ৫০০ এর বেশি চারা রোপণ করেছি।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                        <!-- News Card 2 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+2" alt="সংবাদের ছবি ২" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">শীতবস্ত্র বিতরণে আমাদের অর্জন</h3>
+                                <p class="text-sm text-gray-600 mb-4">এবারের শীতে আমরা ১০,০০০ এর বেশি অসহায় মানুষকে শীতবস্ত্র বিতরণ করেছি। আপনার অনুদানে এটি সম্ভব হয়েছে।</p>
+                                <button onclick="showModal('শীতবস্ত্র বিতরণে আমাদের অর্জন', 'https://placehold.co/600x400/047857/ffffff?text=News+2', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট। শীতবস্ত্র বিতরণের মাধ্যমে আমরা সমাজের অসহায় মানুষের পাশে দাঁড়ানোর চেষ্টা করেছি। আমাদের এই কার্যক্রমে আপনাদের সবার অংশগ্রহণ আমাদের অনুপ্রাণিত করেছে।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                        <!-- News Card 3 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+3" alt="সংবাদের ছবি ৩" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">নতুন দাতব্য স্কুল নির্মাণ শুরু</h3>
+                                <p class="text-sm text-gray-600 mb-4">আমাদের নতুন শিক্ষা প্রকল্পের অধীনে একটি দাতব্য স্কুল নির্মাণের কাজ শুরু হয়েছে, যা সুবিধাবঞ্চিত শিশুদের জন্য আশার আলো।</p>
+                                <button onclick="showModal('নতুন দাতব্য স্কুল নির্মাণ শুরু', 'https://placehold.co/600x400/047857/ffffff?text=News+3', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট। নতুন স্কুল নির্মাণের মাধ্যমে আমরা শিক্ষার আলো ছড়িয়ে দেওয়ার চেষ্টা করছি।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                        <!-- News Card 4 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+4" alt="সংবাদের ছবি ৪" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">রমজানে খাদ্য সহায়তা কর্মসূচি</h3>
+                                <p class="text-sm text-gray-600 mb-4">প্রতি বছরের মতো এবারও রমজানে আমরা খাদ্য সহায়তা প্রদান করেছি। এতে অনেক পরিবার উপকৃত হয়েছে।</p>
+                                <button onclick="showModal('রমজানে খাদ্য সহায়তা কর্মসূচি', 'https://placehold.co/600x400/047857/ffffff?text=News+4', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট। রমজানের পবিত্র মাসে আমরা অসহায়দের জন্য খাদ্য সহায়তা প্রদান করেছি।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                        <!-- News Card 5 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+5" alt="সংবাদের ছবি ৫" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">বন্যা দুর্গতদের জন্য জরুরি ত্রাণ বিতরণ</h3>
+                                <p class="text-sm text-gray-600 mb-4">সাম্প্রতিক বন্যায় ক্ষতিগ্রস্তদের জন্য আমরা জরুরি ত্রাণ বিতরণ সম্পন্ন করেছি।</p>
+                                <button onclick="showModal('বন্যা দুর্গতদের জন্য জরুরি ত্রাণ বিতরণ', 'https://placehold.co/600x400/047857/ffffff?text=News+5', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট। বন্যা দুর্গত এলাকায় আমরা দ্রুত ত্রাণ বিতরণ করেছি।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                        <!-- News Card 6 -->
+                        <div class="news-card">
+                            <img src="https://placehold.co/600x400/047857/ffffff?text=News+6" alt="সংবাদের ছবি ৬" class="news-image">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-gray-800 mb-2">মেধাবী শিক্ষার্থীদের জন্য বৃত্তি</h3>
+                                <p class="text-sm text-gray-600 mb-4">দরিদ্র ও মেধাবী শিক্ষার্থীদের জন্য নতুন শিক্ষাবৃত্তি প্রকল্পের ঘোষণা করা হয়েছে।</p>
+                                <button onclick="showModal('মেধাবী শিক্ষার্থীদের জন্য বৃত্তি', 'https://placehold.co/600x400/047857/ffffff?text=News+6', 'এখানে আপনার ব্লগের বিস্তারিত লেখা থাকবে। এই লেখাটি জাভাস্ক্রিপ্টের মাধ্যমে লোড করা হয়েছে। এটি একটি সম্পূর্ণ ব্লগ পোস্ট।')">বিস্তারিত পড়ুন</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Modal for Blog Post -->
+        <div id="blog-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <img id="modal-image" src="" alt="ব্লগ থাম্বনেইল" class="w-full h-auto rounded-lg mb-4">
+                <h2 id="modal-title" class="text-3xl font-bold text-gray-800 mb-4"></h2>
+                <div id="modal-body" class="text-lg text-gray-600 space-y-4"></div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-[100px]">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: ঠিকানা: বেলতলী, কসবা, ব্রাহ্মণবাড়িয়া-৩৫০০</p>
+                    <p class="text-sm mt-2">ফোন: +880-01940318345</p>
+                    <p class="text-sm mt-2">ইমেইল: insaniyahfoundation25@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#" class="hover:underline">গ্যালারি</a></li>
+                        <li><a href="#" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function showModal(title, imageUrl, content) {
+            const modal = document.getElementById('blog-modal');
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-image').src = imageUrl;
+            document.getElementById('modal-body').innerText = content;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('blog-modal');
+            modal.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('blog-modal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

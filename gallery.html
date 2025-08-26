@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ইনসানিয়াহ ফাউন্ডেশন - গ্যালারি</title>
+    <!-- Chosen Palette: Emerald/Green/Gray -->
+    <!-- Application Structure Plan: A dedicated gallery page with a consistent navbar and footer. The core content features a two-column layout with a sidebar on the left for filtering options and a main grid on the right for displaying media. This structure allows users to easily sort and filter content based on type and date, enhancing usability for exploring a large media collection. -->
+    <!-- Visualization & Content Choices: The main display uses a responsive 3x3 grid for media cards, ensuring a clean and organized presentation. The filtering options in the sidebar (using radio buttons and date inputs) provide a clear and interactive way to navigate the gallery. This design is highly functional and visually appealing for a media-centric page. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+        .header-bg {
+            background-color: #047857;
+            background-image: linear-gradient(to right, rgba(4, 120, 87, 0.9), rgba(4, 120, 87, 0.9)), url('https://placehold.co/1920x200/047857/ffffff?text=Gallery');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div x-data="{ mobileMenuOpen: false }">
+        <!-- Navbar -->
+        <header class="bg-white text-gray-800 shadow-md fixed w-full top-0 z-50">
+            <nav class="container mx-auto px-4 md:px-[100px] flex items-center justify-between p-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center">
+                         <img style="height: 40px; width: 45px;" src="icon-01.jpg" alt="ফাউন্ডেশন লোগো" class="w-8 h-8 rounded-full">
+                    </div>
+                    <a href="index.html" class="text-2xl font-bold">ইনসানিয়াহ ফাউন্ডেশন</a>
+                </div>
+                <div class="hidden md:flex space-x-6 font-medium items-center">
+                    <a href="index.html" class="hover:text-emerald-700">হোম</a>
+                    <a href="about us.html" class="hover:text-emerald-700">আমাদের সম্পর্কে</a>
+                    <a href="Activity.html" class="hover:text-emerald-700">কার্যক্রম</a>
+                    <a href="gallery.html" class="hover:text-emerald-700">গ্যালারি</a>
+                    <a href="news.html" class="hover:text-emerald-700">সংবাদ</a>
+                    <a href="contact.html" class="hover:text-emerald-700">যোগাযোগ</a>
+                </div>
+                <a href="#donate" class="bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hidden md:block hover:bg-emerald-800">দান করুন</a>
+                <button @click="mobileMenuOpen = !mobileMenuOpen" class="md:hidden text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </nav>
+            <div x-show="mobileMenuOpen" x-cloak @click.away="mobileMenuOpen = false" class="md:hidden bg-white mt-0 text-gray-800">
+                <a href="index.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">হোম</a>
+                <a href="about us.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">আমাদের সম্পর্কে</a>
+                <a href="Activity.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">কার্যক্রম</a>
+                <a href="gallery.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">গ্যালারি</a>
+                <a href="news.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">সংবাদ</a>
+                <a href="contact.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm hover:bg-emerald-100">যোগাযোগ</a>
+                <a href="make donation.html" @click="mobileMenuOpen = false" class="block py-2 px-4 text-sm bg-emerald-700 text-white rounded mt-2 text-center hover:bg-emerald-800">দান করুন</a>
+            </div>
+        </header>
+
+        <main class="min-h-screen pt-20">
+            <!-- Header for the gallery page -->
+            <section class="header-bg pt-16 pb-8 text-center text-white">
+                <h1 class="text-4xl md:text-5xl font-bold">গ্যালারি</h1>
+            </section>
+            
+            <!-- Main Gallery Section -->
+            <section id="gallery" class="py-16 px-4">
+                <div class="container mx-auto px-4 md:px-[100px] flex flex-col md:flex-row gap-8">
+                    <!-- Left Sidebar for Filtering -->
+                    <div class="w-full md:w-1/4 bg-white p-6 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-800">ফিল্টার করুন</h3>
+                        
+                        <!-- Filter by Type -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">অনুদান ও কার্যক্রম</h4>
+                            <div class="space-y-2 text-gray-600">
+                                <label class="flex items-center">
+                                    <input type="radio" name="filter-type" value="all" class="mr-2" checked> সব দেখুন
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="filter-type" value="education" class="mr-2"> শিক্ষা
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="filter-type" value="service" class="mr-2"> সেবা
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="filter-type" value="dawah" class="mr-2"> দাওয়াহ্
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter by Media Type -->
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">মিডিয়া টাইপ</h4>
+                            <div class="space-y-2 text-gray-600">
+                                <label class="flex items-center">
+                                    <input type="radio" name="media-type" value="all" class="mr-2" checked> সব দেখুন
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="media-type" value="images" class="mr-2"> ছবি
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="media-type" value="videos" class="mr-2"> ভিডিও
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter by Date Range -->
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-700 mb-2">তারিখ অনুসারে</h4>
+                            <div class="flex flex-col space-y-2">
+                                <input type="date" id="startDate" class="p-2 border rounded-md">
+                                <span>থেকে</span>
+                                <input type="date" id="endDate" class="p-2 border rounded-md">
+                            </div>
+                        </div>
+
+                        <button id="filter-btn" class="w-full mt-6 bg-emerald-700 text-white font-semibold px-4 py-2 rounded-full hover:bg-emerald-800 transition">ফিল্টার করুন</button>
+                    </div>
+
+                    <!-- Right Grid for Gallery Content -->
+                    <div class="w-full md:w-3/4">
+                        <div id="gallery-content" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Gallery items will be injected here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white py-12 px-[100px]">
+            <div class="container mx-auto grid md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">ইনসানিয়াহ ফাউন্ডেশন</h4>
+                    <p class="text-sm">একটি অরাজনৈতিক, অলাভজনক শিক্ষা, দাওয়াহ ও মানবকল্যাণে নিবেদিত সেবামূলক প্রতিষ্ঠান।</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white">ফেসবুক</a>
+                        <a href="#" class="text-gray-400 hover:text-white">ইউটিউব</a>
+                        <a href="#" class="text-gray-400 hover:text-white">টুইটার</a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">যোগাযোগ</h4>
+                    <p class="text-sm">ঠিকানা: ঠিকানা: বেলতলী, কসবা, ব্রাহ্মণবাড়িয়া-৩৫০০</p>
+                    <p class="text-sm mt-2">ফোন: +880-01940318345</p>
+                    <p class="text-sm mt-2">ইমেইল: insaniyahfoundation25@gmail.com</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">গুরুত্বপূর্ণ লিংক</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:underline">আমাদের সম্পর্কে</a></li>
+                        <li><a href="#" class="hover:underline">কার্যক্রম</a></li>
+                        <li><a href="#" class="hover:underline">গ্যালারি</a></li>
+                        <li><a href="#" class="hover:underline">সংবাদ</a></li>
+                        <li><a href="#" class="hover:underline">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-4 text-center text-sm">
+                <p>&copy; ২০২৫ ইনসানিয়াহ ফাউন্ডেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        const mediaData = [
+            { id: 1, type: 'education', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Education+1', description: 'শিক্ষা প্রকল্পের কার্যক্রম ১', date: '2023-01-15' },
+            { id: 2, type: 'service', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Service+1', description: 'ত্রাণ বিতরণ কর্মসূচি', date: '2023-02-20' },
+            { id: 3, type: 'dawah', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Dawah+1', description: 'দাওয়াহ সেমিনার', date: '2023-03-10' },
+            { id: 4, type: 'education', mediaType: 'videos', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', description: 'ভিডিও: শিক্ষার্থীদের জন্য নতুন উদ্যোগ', date: '2023-04-05' },
+            { id: 5, type: 'service', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Service+2', description: 'শীতবস্ত্র বিতরণ', date: '2023-05-18' },
+            { id: 6, type: 'dawah', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Dawah+2', description: 'কুরআন বিতরণ কর্মসূচি', date: '2023-06-25' },
+            { id: 7, type: 'education', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Education+2', description: 'স্কুল পরিচ্ছন্নতা অভিযান', date: '2023-07-30' },
+            { id: 8, type: 'service', mediaType: 'videos', src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', description: 'ভিডিও: বন্যাত্রাণ সহায়তা', date: '2023-08-12' },
+            { id: 9, type: 'dawah', mediaType: 'images', src: 'https://placehold.co/600x400/059669/ffffff?text=Dawah+3', description: 'ইসলামিক বই মেলা', date: '2023-09-01' },
+        ];
+
+        function renderGallery(filteredData) {
+            const galleryContent = document.getElementById('gallery-content');
+            galleryContent.innerHTML = '';
+            filteredData.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'relative group overflow-hidden rounded-lg shadow-md';
+                if (item.mediaType === 'images') {
+                    galleryItem.innerHTML = `
+                        <img src="${item.src}" alt="${item.description}" class="w-full h-auto transform transition-transform duration-300 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-bold">${item.description}</p>
+                        </div>
+                    `;
+                } else if (item.mediaType === 'videos') {
+                    galleryItem.innerHTML = `
+                        <iframe src="${item.src}" frameborder="0" allowfullscreen class="w-full h-auto transform transition-transform duration-300 group-hover:scale-105"></iframe>
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <p class="text-white text-lg font-bold">${item.description}</p>
+                        </div>
+                    `;
+                }
+                galleryContent.appendChild(galleryItem);
+            });
+        }
+
+        document.getElementById('filter-btn').addEventListener('click', () => {
+            const filterType = document.querySelector('input[name="filter-type"]:checked').value;
+            const mediaType = document.querySelector('input[name="media-type"]:checked').value;
+            const startDate = document.getElementById('startDate').value;
+            const endDate = document.getElementById('endDate').value;
+            
+            const filteredData = mediaData.filter(item => {
+                const typeMatch = filterType === 'all' || item.type === filterType;
+                const mediaTypeMatch = mediaType === 'all' || item.mediaType === mediaType;
+                
+                let dateMatch = true;
+                if (startDate && endDate) {
+                    const itemDate = new Date(item.date);
+                    const start = new Date(startDate);
+                    const end = new Date(endDate);
+                    dateMatch = itemDate >= start && itemDate <= end;
+                } else if (startDate) {
+                    const itemDate = new Date(item.date);
+                    const start = new Date(startDate);
+                    dateMatch = itemDate >= start;
+                } else if (endDate) {
+                    const itemDate = new Date(item.date);
+                    const end = new Date(endDate);
+                    dateMatch = itemDate <= end;
+                }
+                
+                return typeMatch && mediaTypeMatch && dateMatch;
+            });
+            
+            renderGallery(filteredData);
+        });
+
+        // Initial render
+        renderGallery(mediaData);
+    </script>
+</body>
+</html>
